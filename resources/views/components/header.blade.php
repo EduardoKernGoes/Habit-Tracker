@@ -11,11 +11,21 @@
 
         <div>
             @auth
-                <form action="{{ route('auth.logout') }}" method="POST" class="inline">
-                    <button type="submit" class="bg-white habit-shadow habit-btn px-2 py-1 border-2">
-                        Sair
-                    </button>
-                </form>
+                <div class="flex gap-2">
+                    <a href="{{ Route::is('site.home') ? route('habits.index') : route('site.home') }}" class="bg-habit-orange habit-btn px-2 py-1 border-2 habit-shadow">
+                        @if (Route::is('site.home'))
+                            Meus Hábitos
+                        @else
+                            Home
+                        @endif
+                    </a>
+
+                    <form action="{{ route('auth.logout') }}" method="POST" class="inline">
+                        <button type="submit" class="bg-white habit-shadow habit-btn px-2 py-1 border-2">
+                            Sair
+                        </button>
+                    </form>
+                </div>
             @endauth
 
             @guest
