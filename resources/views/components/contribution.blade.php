@@ -7,13 +7,10 @@
 @endphp
 
 <div class="mb-6">
-  <div class="flex items-center justify-between mb-3">
+  <div class="flex items-center justify-between">
     <h2 class="font-bold text-lg">
       {{ $habit->name }}
     </h2>
-    <span class="text-sm text-gray-600 font-semibold">
-      {{ $selectedYear }}
-    </span>
   </div>
 
   <div class="bg-orange-50 p-2 habit-shadow">
