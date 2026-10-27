@@ -1,0 +1,50 @@
+<x-layout>
+    <main class="py-10 min-h-[calc(100vh-130px)] px-4">
+        <x-navbar />
+
+        @session('success')
+        <p class="bg-green-100 border border-green-500 text-green-700 p-3 my-4">
+            {{ session('success') }}
+        </p>
+        @endsession
+
+        <div>
+            <div class="flex items-center justify-between">
+                <h2 class="text-lg mt-8 mb-2">
+                    Configurar Hábitos
+                </h2>
+                <a href="{{ route('habits.create') }}" class="text-lg habit-btn bg-habit-orange px-2 py-1 habit-shadow">
+                    Criar Hábito
+                </a>
+            </div>
+            <ul class="flex flex-col gap-2">
+                @forelse ($habits as $h)
+                    <li class="habit-shadow p-2 bg-[#FFDAAC]">
+                        <div class="flex gap-2 items-center">
+                            <p class="font-bold text-lg">
+                                {{ $h->name }}
+                            </p>
+
+                            <a href="{{ route('habits.edit', $h->id) }}", class="bg-blue-300 p-1 border-2 hover:opacity-50">
+                                Editar
+                            </a>
+
+                            <form action="{{ route('habits.destroy', $h) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" class="bg-red-300 p-1 border-2 hover:opacity-50">
+                                    Apagar
+                                </button>
+                            </form>
+                        </div>
+                    </li>
+                @empty
+                    <p class="text-center text-xl">
+                        Você ainda não tem nenhum hábito cadastrado.
+                    </p>
+                @endforelse
+            </ul>
+        </div>
+    </main>
+</x-layout>
