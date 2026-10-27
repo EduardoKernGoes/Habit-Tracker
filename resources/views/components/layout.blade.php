@@ -14,5 +14,9 @@
                 {{ $slot }}
             </main>
         <x-footer />
+
+        <x-toast />
+
+        <script type="module" src="{{ Vite::asset('resources/js/app.js') }}"></script>
     </body>
 </html>

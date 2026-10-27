@@ -1,12 +1,6 @@
 <x-layout>
     <x-navbar />
 
-    @session('success')
-        <p class="bg-green-100 border border-green-500 text-green-700 p-3 my-4">
-            {{ session('success') }}
-        </p>
-    @endsession
-
     <div>
         <h2 class="text-lg mt-8 mb-2">
             {{ date('d/m/Y') }}
