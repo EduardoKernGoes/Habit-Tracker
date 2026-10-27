@@ -6,8 +6,7 @@
             target="_blank"
             class="underline hover:text-habit-orange font-bold"
         >
-            Eduardo Goes
-        </a>.
+            Eduardo Goes</a>.
         Código fonte está no
         <a href="https://github.com/EduardoKernGoes/Habit-Tracker" target="_blank" class="underline hover:text-habit-orange font-bold">
             GitHub

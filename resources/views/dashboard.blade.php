@@ -2,9 +2,9 @@
     <x-navbar />
 
     <div>
-        <h2 class="text-lg mt-8 mb-2">
-            {{ date('d/m/Y') }}
-        </h2>
+        <x-title>
+            {{ \Carbon\Carbon::now()->locale('pt_BR')->translatedFormat('l, d \d\e F') }}
+        </x-title>
 
         <ul class="flex flex-col gap-2">
             @forelse ($habits as $h)
@@ -22,7 +22,7 @@
                             {{ $h->wasCompletedToday() ? 'checked' : '' }}
                             onchange="document.getElementById('form-{{ $h->id }}').submit()"
                         />
-                        <p class="font-bold text-lg">
+                        <p class="font-bold text-lg {{ $h->wasCompletedToday() ? 'line-through italic' : '' }}">
                             {{ $h->name }}
                         </p>
 
