@@ -10,7 +10,9 @@
     </head>
     <body class="bg-[#FFEDD6] font-mono">
         <x-header />
-        {{ $slot }}
+            <main class="max-w-5xl mx-auto py-10 min-h-[calc(100vh-130px)] px-4">
+                {{ $slot }}
+            </main>
         <x-footer />
     </body>
 </html>
